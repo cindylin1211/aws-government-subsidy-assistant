@@ -1,0 +1,24 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeAgent"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:us-west-2:640223110023:agent/Z56OAA2L3J",
+                "arn:aws:bedrock:us-west-2:640223110023:agent-alias/Z56OAA2L3J/Z1FEZNULZP"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:us-west-2:640223110023:*"
+        }
+    ]
+}
