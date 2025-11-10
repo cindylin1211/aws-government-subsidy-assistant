@@ -23,6 +23,8 @@ const ChatInterface: React.FC = () => {
   const [inputValue, setInputValue] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  // 使用 useRef 保持 sessionId 在整個對話期間不變
+  const sessionIdRef = useRef(`session-${Date.now()}`)
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -78,7 +80,7 @@ const ChatInterface: React.FC = () => {
     try {
       const requestBody = { 
         message: userInput,
-        sessionId: `session-${Date.now()}`
+        sessionId: sessionIdRef.current
       }
       console.log('📦 請求內容:', JSON.stringify(requestBody, null, 2))
       
