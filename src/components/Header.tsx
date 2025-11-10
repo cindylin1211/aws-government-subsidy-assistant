@@ -5,11 +5,12 @@ const Header: React.FC = () => {
     <header className="bg-aws-blue text-white shadow-lg">
       <div className="container mx-auto px-4 py-6">
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-orange-500 flex items-center justify-center">
-            {/* AWS Logo */}
+          <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-gradient-to-br from-orange-400 via-orange-500 to-red-500 flex items-center justify-center">
+            {/* AWS DGR Logo */}
             <div className="w-full h-full flex items-center justify-center text-white text-xs font-bold">
               <div className="text-center leading-tight">
                 <div>AWS</div>
+                <div>DGR</div>
               </div>
             </div>
           </div>
