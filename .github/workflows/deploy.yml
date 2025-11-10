@@ -35,6 +35,9 @@ jobs:
         env:
           VITE_API_URL: https://hyeavzp56b.execute-api.us-west-2.amazonaws.com/prod/chat
       
+      - name: List dist contents
+        run: ls -la dist/ && ls -la dist/assets/
+      
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
