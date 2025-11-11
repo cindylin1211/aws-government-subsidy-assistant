@@ -54,7 +54,7 @@ const ChatInterface: React.FC = () => {
       const botResponse: Message = {
         id: (Date.now() + 1).toString(),
         type: 'bot',
-        content: response,
+        content: response.replace(/\\n/g, '\n'), // 處理 \n 字串
         timestamp: new Date()
       }
       setMessages(prev => [...prev, botResponse])
