@@ -58,14 +58,50 @@ Agent 搜尋知識庫時可能超過 API Gateway 的 30 秒預設超時限制，
 ## 目前狀況
 
 - ✅ Agent 可以正確使用知識庫
-- ✅ 簡單查詢可以成功回答
-- ⚠️ 複雜查詢可能會 timeout
+- ✅ Lambda Timeout 已改為 10 分鐘
+- ❌ API Gateway 有 29 秒硬限制（無法突破）
+- ❌ Agent 搜尋知識庫經常超過 29 秒
 
-## 建議
+## 根本問題
 
-1. **立即執行**：增加 API Gateway 和 Lambda 的 timeout
-2. **長期優化**：調整知識庫的 chunking 策略
-3. **使用者體驗**：前端增加更明確的 loading 狀態
+API Gateway 的 29 秒限制是 AWS 的硬限制，無法增加。Agent 搜尋 23 份 PDF 需要的時間經常超過這個限制。
+
+## 立即可行的解決方案
+
+### 選項 A：優化知識庫設定（推薦）
+
+1. **進入 Bedrock Console → Knowledge bases**
+2. **點擊你的知識庫**
+3. **點擊 Data source**
+4. **點擊 Edit**
+5. **調整 Chunking configuration**：
+   - Chunking strategy: Fixed-size chunking
+   - Max tokens: **300**（降低，原本可能是 500-1000）
+   - Overlap percentage: **20%**
+6. **儲存並 Sync**
+
+這會讓搜尋更快，但可能需要多次查詢才能找到完整資訊。
+
+### 選項 B：在 Agent 設定中限制知識庫搜尋結果
+
+1. **進入 Bedrock Console → Agents → 你的 Agent**
+2. **點擊 Knowledge bases 標籤**
+3. **編輯知識庫設定**
+4. **設定 Maximum number of results**：改為 **3**（原本可能是 5-10）
+5. **Prepare → Create Version → 更新 Alias**
+
+這會讓 Agent 只看前 3 個最相關的結果，加快速度。
+
+### 選項 C：減少 PDF 數量（最有效）
+
+如果 23 份 PDF 中有些不常用：
+1. 移到另一個 S3 資料夾
+2. 只保留最常查詢的 10-15 份
+3. Sync 知識庫
+
+### 選項 D：使用異步架構（需要重構）
+
+改用 WebSocket 或輪詢機制，但需要大幅修改架構。
 
 ## 注意事項
 
