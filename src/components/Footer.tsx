@@ -8,16 +8,22 @@ const Footer: React.FC = () => {
           <h3 className="text-gray-800 text-xl font-semibold mb-4">聯絡方式</h3>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto text-gray-600">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto text-gray-600 text-center">
           {/* Left Column */}
           <div className="space-y-2">
-            <p>TW DGR: aws-tw-dgr@amazon.com</p>
-            <p>PM Maggie: maggieyj@amazon.com</p>
+            <p>
+              TW DGR: <a href="mailto:aws-tw-dgr@amazon.com" className="text-aws-orange hover:underline">aws-tw-dgr@amazon.com</a>
+            </p>
+            <p>
+              PM Maggie: <a href="mailto:maggieyj@amazon.com" className="text-aws-orange hover:underline">maggieyj@amazon.com</a>
+            </p>
           </div>
           
           {/* Right Column */}
           <div className="space-y-2">
-            <p>Cindy: cindyjw@amazon.com</p>
+            <p>
+              Cindy: <a href="mailto:cindyjw@amazon.com" className="text-aws-orange hover:underline">cindyjw@amazon.com</a>
+            </p>
             <p>
               Slack: 
               <a 
