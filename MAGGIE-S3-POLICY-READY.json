@@ -2,21 +2,7 @@
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "AllowMaggieListBucket",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::640223110023:user/maggieyj"
-      },
-      "Action": "s3:ListBucket",
-      "Resource": "arn:aws:s3:::tw-dgr-gov-funding",
-      "Condition": {
-        "StringLike": {
-          "s3:prefix": "dgr-gov-funding/*"
-        }
-      }
-    },
-    {
-      "Sid": "AllowMaggieObjectAccess",
+      "Sid": "AllowMaggieAccessToDGRFolder",
       "Effect": "Allow",
       "Principal": {
         "AWS": "arn:aws:iam::640223110023:user/maggieyj"
@@ -27,6 +13,15 @@
         "s3:DeleteObject"
       ],
       "Resource": "arn:aws:s3:::tw-dgr-gov-funding/dgr-gov-funding/*"
+    },
+    {
+      "Sid": "AllowMaggieListBucket",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::640223110023:user/maggieyj"
+      },
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::tw-dgr-gov-funding"
     }
   ]
 }
