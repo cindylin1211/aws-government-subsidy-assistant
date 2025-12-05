@@ -5,23 +5,33 @@
       "Sid": "AllowMaggieAccessToDGRFolder",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::640223110023:user/maggieyj"
+        "AWS": "arn:aws:iam::640223110023:root"
       },
       "Action": [
         "s3:GetObject",
         "s3:PutObject",
         "s3:DeleteObject"
       ],
-      "Resource": "arn:aws:s3:::tw-dgr-gov-funding/dgr-gov-funding/*"
+      "Resource": "arn:aws:s3:::tw-dgr-gov-funding/dgr-gov-funding/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:username": "maggieyj"
+        }
+      }
     },
     {
       "Sid": "AllowMaggieListBucket",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::640223110023:user/maggieyj"
+        "AWS": "arn:aws:iam::640223110023:root"
       },
       "Action": "s3:ListBucket",
-      "Resource": "arn:aws:s3:::tw-dgr-gov-funding"
+      "Resource": "arn:aws:s3:::tw-dgr-gov-funding",
+      "Condition": {
+        "StringEquals": {
+          "aws:username": "maggieyj"
+        }
+      }
     }
   ]
 }
