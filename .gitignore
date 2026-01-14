@@ -5,7 +5,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # Production build
-# dist/  # 暫時允許推送 dist 用於 GitHub Pages
+dist/
+docs/  # 自動生成的文件
 build/
 
 # Environment variables
