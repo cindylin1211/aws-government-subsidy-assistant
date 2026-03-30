@@ -3,9 +3,9 @@ import boto3
 import os
 from datetime import datetime
 
-# Bedrock Agent 配置
-AGENT_ID = "Z56OAA2L3J"
-AGENT_ALIAS_ID = "TSTALIASID"  # 使用 TestAlias (DRAFT) 來測試新的知識庫內容
+# Bedrock Agent 配置 - 從環境變數讀取
+AGENT_ID = os.environ.get('AGENT_ID', 'Z56OAA2L3J')
+AGENT_ALIAS_ID = os.environ.get('AGENT_ALIAS_ID', 'TSTALIASID')
 REGION = "us-west-2"
 
 # 初始化 Bedrock Agent Runtime 客戶端
