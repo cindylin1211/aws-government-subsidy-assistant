@@ -25,15 +25,9 @@ function App() {
             </h1>
             
             <p className="text-lg text-gray-600 mb-6">
-              我們正在進行系統升級，以提供更好的服務體驗。
+              我們正在進行系統升級，以提供更好的服務體驗。<br />
+              造成不便，敬請見諒。
             </p>
-            
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-              <p className="text-sm text-blue-800">
-                預計維護時間：約 30 分鐘<br />
-                造成不便，敬請見諒
-              </p>
-            </div>
             
             <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
               <p className="text-sm text-green-800 font-medium mb-2">
