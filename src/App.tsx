@@ -35,6 +35,15 @@ function App() {
               </p>
             </div>
             
+            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+              <p className="text-sm text-green-800 font-medium mb-2">
+                💡 推薦替代方案
+              </p>
+              <p className="text-sm text-green-700">
+                推薦使用 <span className="font-semibold">Quick Suite Agent</span>，加入<a href="https://d5vc2tehf6g33.cloudfront.net/2025GovFundeBook.pdf" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:underline font-medium">懶人包檔案</a>即可達成同樣效果
+              </p>
+            </div>
+            
             <p className="text-sm text-gray-500">
               如有緊急需求，請聯繫：<a href="mailto:cindyjw@amazon.com" className="text-blue-600 hover:underline">cindyjw@amazon.com</a>
             </p>
